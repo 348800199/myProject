@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header>
     <h1>记事本
       <a class="t-btn"
          @click="showTools">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import newTools from 'newTools'
+// import newTools from 'newTools'
 export default {
   name: 'HelloWorld',
   data () {
@@ -19,9 +19,7 @@ export default {
 
     }
   },
-  mounted () {
-    console.log(newTools, 2)
-  },
+
   methods: {
     showTools () {
 
@@ -32,11 +30,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped  lang="scss">
 @import '../assets/scss/base';
-.header {
-  a {
-    color: $btnText;
-  }
-}
 </style>

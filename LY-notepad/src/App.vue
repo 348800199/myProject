@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app"
+       :class="[getTheme]">
     <nHeader></nHeader>
   </div>
 </template>
@@ -10,9 +11,17 @@ export default {
   name: 'App',
   components: {
     nHeader
-  }
+  },
+  computed: {
+    getTheme () {
+      return this.$store.getters.getTheme
+    }
+  },
 }
 </script>
-
-<style>
+<style lang="scss">
+@import '../static/theme.scss';
 </style>
+
+
+
