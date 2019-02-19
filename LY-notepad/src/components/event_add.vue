@@ -4,18 +4,35 @@
                class="n-input"
                v-model="content"
                placeholder="待办事项"
-               @keyup.enter="submit">
+               @keyup.enter="submit"> {{count}}。。。。。。。
         <button class="add-btn"
                 @click="submit">提交</button>
     </div>
 </template>
 
 <script>
+// mapState  mapState 辅助函数帮助我们生成计算属性 多个管理状态
+import { mapState } from 'vuex'
 export default {
     data () {
         return {
             content: ''
         }
+    },
+    computed: {
+        // 和原本得混合使用computed
+        localComputed () { /* ... */ },
+        ...mapState({
+            // 普通函数 this=获取 store 实例
+            // count (state) {
+            //     console.log(this) store 实例
+            //     return this.$store.state.event.count
+            // }
+            // 映射 this.count 为 store.state.count
+            // 'count'
+            //
+            count: state => state.event.count
+        })
     },
     methods: {
         submit () {
@@ -28,9 +45,12 @@ export default {
                 };
             self.content = self.content.trim();
             if (self.content) {
+                // 传参方式
+                this.$store.getters.getCount('我是id')
                 params.content = self.content;
                 self.$store.dispatch('addevent', params);
                 self.content = '';
+                console.log(self.$toast)
                 self.$toast('添加成功');
             }
         }

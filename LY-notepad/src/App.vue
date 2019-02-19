@@ -1,9 +1,10 @@
 <template>
   <div id="app"
        :class="[getTheme]">
-    <nHeader></nHeader>
+    <nHeader @tools="changePages"></nHeader>
     <section :class="['container',table && 'hide' ]">
       <n-add></n-add>
+      <n-sidebar :isShow="tools"></n-sidebar>
     </section>
   </div>
 </template>
@@ -11,22 +12,31 @@
 <script>
 import nHeader from '@/components/nHeader'
 import nAdd from '@/components/event_add.vue';
+import nSidebar from './components/sidebar.vue';
 export default {
   name: 'App',
   data () {
     return {
-      table: false
+      table: false,
+      tools: false
     }
   },
   components: {
     nHeader,
-    nAdd
+    nAdd,
+    nSidebar
   },
   computed: {
     getTheme () {
       return this.$store.getters.getTheme
     }
   },
+  methods: {
+    changePages () {
+      this.tools = !this.tools
+
+    }
+  }
 }
 </script>
 <style lang="scss">

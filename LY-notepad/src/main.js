@@ -4,8 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/index';
+import VueToast from 'vue2-toast';
+import 'vue2-toast/lib/toast.css';
 
 Vue.config.productionTip = false
+
+Vue.use(VueToast, { type: 'center' })
 
 /* eslint-disable no-new */
 new Vue({

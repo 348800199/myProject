@@ -1,10 +1,12 @@
 <template>
   <header>
     <h1>记事本
-      <a class="t-btn"
-         @click="showTools">
-        <div class="showis"></div>
-      </a>
+      <div @click="showTools">
+        <a class="t-btn">
+          <div class="showis"></div>
+        </a>
+      </div>
+
     </h1>
   </header>
 </template>
@@ -18,10 +20,9 @@ export default {
 
     }
   },
-
   methods: {
     showTools () {
-
+      this.$emit('tools')
     }
 
   }
