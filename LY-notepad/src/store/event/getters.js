@@ -1,6 +1,7 @@
 /**
  * Created by linxin on 2017/3/11.
  */
+// 统一得方法  参数是states
 export default {
     getEventList (states) {
         return states.event;

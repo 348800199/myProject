@@ -46,12 +46,14 @@ export default {
             self.content = self.content.trim();
             if (self.content) {
                 // 传参方式
-                this.$store.getters.getCount('我是id')
-                params.content = self.content;
-                self.$store.dispatch('addevent', params);
-                self.content = '';
-                console.log(self.$toast)
-                self.$toast('添加成功');
+                // this.$store.getters.getCount('我是id')
+                //  this.$store.commit('increment')  // 改变state 值
+                self.$store.dispatch('increment', { id: 12321 });
+                // params.content = self.content;
+                // self.$store.dispatch('addevent', params);
+                // self.content = '';
+                // console.log(self.$toast)
+                // self.$toast('添加成功');
             }
         }
     }
