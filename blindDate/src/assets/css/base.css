@@ -1,0 +1,167 @@
+/* ----------------大小------------------- */
+.fs_14{
+    font-size: .14rem;
+}
+.fs_16 {
+    font-size: .16rem;
+}
+.fs_18 {
+    font-size: .18rem;
+}
+
+.fs_20 {
+    font-size: .20rem;
+}
+
+.fs_22 {
+    font-size: .22rem;
+}
+
+.fs_24 {
+    font-size: .24rem;
+}
+
+.fs_26 {
+    font-size: .26rem;
+}
+
+.fs_28 {
+    font-size: .28rem;
+}
+
+.fs_30 {
+    font-size: .30rem;
+}
+
+.fs_32 {
+    font-size: .32rem;
+}
+
+.fs_34 {
+    font-size: .34rem;
+}
+.fs_36{
+    font-size: .36rem;
+}
+.fs_38{
+     font-size:.38rem; 
+}
+.fs_40{
+     font-size:.40rem; 
+}
+.fs_42{
+     font-size:.42rem; 
+}
+.fs_44{
+    font-size:.44rem; 
+}
+.fs_46{
+    font-size:.46rem; 
+}
+.fs_48{
+    font-size:.48rem; 
+}
+.fs_58{
+    font-size: .58rem;
+}
+
+.fs_w {
+    font-weight: bold;
+}
+/* 颜色 */
+
+.fc_fff{
+    color: #fff;
+}
+.fc_b4d{
+    color:#172b4d;
+}
+.fc_97e{
+    color: #5b697e;
+}
+.fc_efe{
+    color: #fefefe;
+}
+.fc_2a6{
+    color:#8492a6
+}
+
+/* 背景颜色 */
+.bg_1f6{
+    background: #eff1f6;
+}
+.bg_fff{
+    background: #fff;
+}
+.bg_dd5{
+    background: #692dd5;
+}
+.bg_09b{
+    background: #00b09b;
+}
+.bg_1dc{
+    background:#36d1dc;
+}
+
+
+
+.flex {
+    display: flex;
+}
+
+.flex_cc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex_cc_c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.flex_bc {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.flex_jc {
+    display: flex;
+    justify-content: center;
+}
+
+.flex_ac {
+    display: flex;
+    align-items: center;
+}
+
+.flex_1 {
+    flex: 1;
+}
+.flex_wrap {
+   flex-flow: wrap;
+}
+
+/*水平居中  */
+
+.tc {
+    text-align: center;
+}
+/*多行  */
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.clamp_1{
+    -webkit-line-clamp: 1;
+}
+.clamp_2{
+    -webkit-line-clamp: 2;
+}
+.clamp_3{
+    -webkit-line-clamp: 3;
+}
