@@ -1,0 +1,20 @@
+<!--  -->
+<template>
+  <div class="container">
+
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Page2',
+  data () {
+    return {
+    };
+  },
+  methods: {}
+}
+
+</script>
+<style lang='scss' scoped>
+</style>
