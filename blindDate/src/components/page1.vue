@@ -5,6 +5,7 @@
     </div>
     <div class="adressArr fs_28 fc_fff">
       <div class="adressItem tc"
+           @click="goJume"
            v-for="item in adress"
            :key="item.id">
         {{item.name}}
@@ -17,6 +18,7 @@
       </div>
       <div class="memberArr">
         <div class="memberItem"
+             @click="goDetail"
              v-for="item in member"
              :key="item.id">
           <img :src="item.img"
@@ -33,7 +35,8 @@
     </div>
     <!-- 底部 -->
     <div class="footer tc fs_22">
-      <div class="word">关于我们</div>丨
+      <div class="word"
+           @click="goAblout">关于我们</div>丨
       <div class="word">意见反馈</div>丨
       <div class="word">知姻网服务协议</div>丨
       <div class="word">个人信息保护政策</div>
@@ -63,7 +66,16 @@ export default {
   watch: {
   },
   methods: {
-
+    goJume () {
+      //router.push({ name: 'user', params: { userId: 123 }})
+      this.$router.push({ name: 'Page2' })
+    },
+    goDetail () {
+      this.$router.push({ name: 'Page3' })
+    },
+    goAblout () {
+      this.$router.push({ name: 'Page4' })
+    },
 
   },
   components: {
@@ -130,9 +142,6 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 0.3rem 0;
-    .word {
-    }
   }
 }
 </style>

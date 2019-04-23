@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import '@/assets/js/remConfig.js'
 import '@/assets/css/base.css'
+import 'swiper/dist/css/swiper.css';
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

@@ -39,11 +39,11 @@ td {
   margin: 0;
   padding: 0;
 }
-html {
-  font-size: 50px;
-}
 div {
   box-sizing: border-box;
   word-break: break-all;
+}
+.container {
+  font-size: 0.3rem;
 }
 </style>
