@@ -5,7 +5,7 @@
     </div>
     <div class="adressArr fs_28 fc_fff">
       <div class="adressItem tc"
-           @click="goJume"
+           @click="goJume(item)"
            v-for="item in adress"
            :key="item.id">
         {{item.name}}
@@ -18,7 +18,7 @@
       </div>
       <div class="memberArr">
         <div class="memberItem"
-             @click="goDetail"
+             @click="goDetail(item)"
              v-for="item in member"
              :key="item.id">
           <img :src="item.img"
@@ -36,10 +36,13 @@
     <!-- 底部 -->
     <div class="footer tc fs_22">
       <div class="word"
-           @click="goAblout">关于我们</div>丨
-      <div class="word">意见反馈</div>丨
-      <div class="word">知姻网服务协议</div>丨
-      <div class="word">个人信息保护政策</div>
+           @click="goAblout('关于我们')">关于我们</div>丨
+      <div class="word"
+           @click="goAblout('意见反馈')">意见反馈</div>丨
+      <div class="word"
+           @click="goAblout('知姻网服务协议')">知姻网服务协议</div>丨
+      <div class="word"
+           @click="goAblout('个人信息保护政策')">个人信息保护政策</div>
     </div>
   </div>
 </template>
@@ -49,7 +52,7 @@ export default {
   name: 'Page1',
   data () {
     return {
-      adress: [{ name: '四川', id: 1 }, { name: '四川1', id: 2 }, { name: '四川2', id: 3 }, { name: '四川3', id: 4 }, { name: '四川4', id: 5 }, { name: '四川5', id: 6 }, { name: '四川7', id: 7 }, { name: '四川8', id: 8 }, { name: '四川9', id: 9 }, { name: '四川10', id: 10 }, { name: '四川11', id: 11 }, { name: '四川12', id: 12 }],
+      adress: [{ name: '成都', id: 1 }, { name: '绵阳', id: 2 }, { name: '德阳', id: 3 }, { name: '广元', id: 4 }, { name: '宜宾', id: 5 }, { name: '广安', id: 6 }, { name: '巴中', id: 7 }, { name: '南充', id: 8 }, { name: '遂宁', id: 9 }, { name: '乐山', id: 10 }, { name: '眉山', id: 11 }, { name: '达州', id: 12 }],
       member: [{ id: 1, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
       { id: 2, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
       { id: 3, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
@@ -66,15 +69,15 @@ export default {
   watch: {
   },
   methods: {
-    goJume () {
+    goJume (id) {
       //router.push({ name: 'user', params: { userId: 123 }})
-      this.$router.push({ name: 'Page2' })
+      this.$router.push({ name: 'Page2', params: { id } })
     },
-    goDetail () {
-      this.$router.push({ name: 'Page3' })
+    goDetail (detail) {
+      this.$router.push({ name: 'Page3', params: { detail } })
     },
-    goAblout () {
-      this.$router.push({ name: 'Page4' })
+    goAblout (content) {
+      this.$router.push({ name: 'Page4', params: { content } })
     },
 
   },

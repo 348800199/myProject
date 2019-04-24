@@ -4,7 +4,8 @@
     <div class="header">
       <div class="home fs_28"
            @click="goHome">首页</div>
-      <div class="adressTest fs_34">成都</div>
+      <div class="adressTest fs_34"
+           v-if="adressObj">{{adressObj.name}}</div>
     </div>
     <div class="screen fs_26">
       <div :class="[memberStatus?'un-member':'active-member','member']"
@@ -41,6 +42,7 @@ export default {
   name: 'Page2',
   data () {
     return {
+      adressObj: null,
       memberStatus: false,
       member: [{ id: 1, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
       { id: 2, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
@@ -49,6 +51,10 @@ export default {
         , { id: 5, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
       ]
     };
+  },
+  created () {
+
+    this.adressObj = this.$route.params.id
   },
   methods: {
     changeStatus (memberStatus) {
