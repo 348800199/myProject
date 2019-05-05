@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <div class="header fs_28 flex_cc">
-      知姻网(待设计)
+      <img src="@/assets/images/logo.jpg"
+           class="logo"
+           alt="">
     </div>
     <div class="adressArr fs_28 fc_fff">
       <div class="adressItem tc"
@@ -34,7 +36,7 @@
            class="AdvertisingImg">
     </div>
     <!-- 底部 -->
-    <div class="footer tc fs_22">
+    <div class="footer tc fs_24">
       <div class="word"
            @click="goAblout('关于我们')">关于我们</div>丨
       <div class="word"
@@ -48,6 +50,8 @@
 </template>
 
 <script type="text/ecmascript-6">
+// let example = require('');
+import example from '@/assets/js'
 export default {
   name: 'Page1',
   data () {
@@ -58,11 +62,16 @@ export default {
       { id: 3, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
         , { id: 4, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
         , { id: 5, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
+        , { id: 6, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
+        , { id: 7, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
+        , { id: 8, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
+        , { id: 9, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
       ]
     }
 
   },
   created () {
+    console.log(example.add)
   },
   computed: {
   },
@@ -93,8 +102,12 @@ export default {
   padding-bottom: 0.3rem;
   .header {
     width: 100%;
-    height: 1rem;
-    border: 0.02rem solid #efefef;
+    border-bottom: 0.02rem solid #efefef;
+    .logo {
+      width: 100%;
+      height: 50px;
+      display: block;
+    }
   }
   .adressArr {
     background: #fe0000;
@@ -114,16 +127,16 @@ export default {
       padding-bottom: 0.2rem;
     }
     .memberArr {
-      margin-left: 1%;
+      margin-left: 0.2%;
       display: flex;
       justify-content: start;
       flex-flow: wrap;
       .memberItem {
-        width: 31%;
-        margin: 1%;
+        width: 32.1%;
+        margin: 0.5%;
         .memberImg {
           width: 100%;
-          height: 2.3rem;
+          height: 3.2rem;
           display: block;
         }
       }
@@ -142,7 +155,7 @@ export default {
     justify-content: center;
     color: #666;
     position: absolute;
-    bottom: 0;
+    bottom: 0.2rem;
     left: 0;
     width: 100%;
   }

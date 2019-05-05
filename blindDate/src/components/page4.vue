@@ -7,11 +7,11 @@
       <div class="adressTest fs_34">{{content}}</div>
     </div>
     <div class="feedback content fs_28"
-         v-if="content==='意见反馈'">
+         v-if="content==='意见反馈' || '举报投诉' ">
       <textarea name=""
                 v-model="submitContent"
                 id=""
-                placeholder="请输入反馈内容（最多500字）"
+                placeholder="请输入内容（最多500字）"
                 cols="30"
                 maxlength="500"
                 class="textarea"

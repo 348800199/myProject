@@ -29,6 +29,11 @@
       <div class="title">择偶条件</div>
       <div class="content">择偶要求:25-30岁，身高175以上，本科学历以上，29-37岁，未婚，身高168以上，学历高中以上，欣赏阳光，上进，孝顺，对家.</div>
     </div>
+    <!-- 投诉 -->
+    <div class="complaint flex_cc fs_22"
+         @click="goAblout('举报投诉')">
+      投诉
+    </div>
   </div>
 </template>
 
@@ -58,6 +63,9 @@ export default {
     })
   },
   methods: {
+    goAblout (content) {
+      this.$router.push({ name: 'Page4', params: { content } })
+    },
   }
 }
 
@@ -69,6 +77,8 @@ export default {
     height: 1.12rem;
     border-bottom: 0.02rem solid #eee;
     position: relative;
+    background: #fe0000;
+    color: #fff;
     .adressTest {
       text-align: center;
       display: inline-block;
@@ -80,7 +90,7 @@ export default {
   }
   .swieep {
     width: 100%;
-    height: 100vw;
+    height: 10rem;
     .swiper-container {
       height: 100%;
     }
@@ -98,11 +108,26 @@ export default {
       font-weight: bold;
     }
     .content {
+      font-size: 0.28rem;
       color: #999;
       display: -webkit-box;
       -webkit-box-pack: center;
       -webkit-box-align: center;
+      background: rgba(239, 246, 255, 0.7);
+      padding: 0.2rem;
+      border-radius: 0.2rem;
     }
+  }
+  .complaint {
+    position: fixed;
+    right: 0.3rem;
+    bottom: 1rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    color: #fff;
+    border-radius: 50%;
+    background: #4c8fe8;
+    box-shadow: 0 0.05rem 0.5rem rgba(0, 105, 255, 0.59);
   }
 }
 </style>
