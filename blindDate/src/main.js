@@ -6,7 +6,11 @@ import router from './router'
 import '@/assets/js/remConfig.js'
 import '@/assets/css/base.css'
 import 'swiper/dist/css/swiper.css';
+import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/axios
+import '@/components/componentRegister.js'
+
 Vue.config.productionTip = false
+Vue.prototype.$http = httpRequest // ajax请求方法
 
 /* eslint-disable no-new */
 new Vue({

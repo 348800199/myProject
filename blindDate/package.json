@@ -10,6 +10,8 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "vue": "^2.5.2",
     "vue-concise-slider": "^3.3.9",
     "vue-router": "^3.0.1"

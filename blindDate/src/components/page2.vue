@@ -64,7 +64,7 @@ export default {
   },
   created () {
 
-    this.adressObj = this.$route.params.id
+    // this.adressObj = this.$route.params.id
   },
   methods: {
     changeStatus (memberStatus) {

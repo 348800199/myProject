@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header fs_28 flex_cc">
-      <img src="@/assets/images/logo.jpg"
+      <img src="~%/images/logo.jpg"
            class="logo"
            alt="">
     </div>
@@ -71,6 +71,7 @@ export default {
 
   },
   created () {
+    this.getDate()
     console.log(example.add)
   },
   computed: {
@@ -78,6 +79,15 @@ export default {
   watch: {
   },
   methods: {
+    getDate () {
+
+      this.$http({
+        url: this.$http.adornUrl('/index.php/api/first/index'),
+        method: 'get',
+      }).then(data => {
+
+      })
+    },
     goJume (id) {
       //router.push({ name: 'user', params: { userId: 123 }})
       this.$router.push({ name: 'Page2', params: { id } })
