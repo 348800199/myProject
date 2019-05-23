@@ -8,6 +8,7 @@ import '@/assets/css/base.css'
 import 'swiper/dist/css/swiper.css';
 import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/axios
 import '@/components/componentRegister.js'
+import store from '@/store'
 
 Vue.config.productionTip = false
 Vue.prototype.$http = httpRequest // ajax请求方法
@@ -16,6 +17,7 @@ Vue.prototype.$http = httpRequest // ajax请求方法
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

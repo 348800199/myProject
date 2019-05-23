@@ -50,8 +50,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-// let example = require('');
 import example from '@/assets/js'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Page1',
   data () {
@@ -72,20 +72,26 @@ export default {
   },
   created () {
     this.getDate()
-    console.log(example.add)
+
   },
   computed: {
   },
   watch: {
   },
   methods: {
+    ...mapMutations([
+      'setStatus'
+    ]),
+    ...mapActions(
+      { actionsStatus: 'setStatus' }
+    ),
     getDate () {
-
       this.$http({
         url: this.$http.adornUrl('/index.php/api/first/index'),
         method: 'get',
       }).then(data => {
-
+        // this.setStatus(false)
+        this.actionsStatus(false)
       })
     },
     goJume (id) {

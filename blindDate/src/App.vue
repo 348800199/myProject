@@ -1,12 +1,22 @@
 <template>
   <div id="app">
+    <Loading v-if="getStatus" />
+
     <router-view/>
   </div>
 </template>
 
 <script>
+import Loading from '@/assets/components/loading'
+import { mapGetters } from 'vuex'
 export default {
-  name: 'App'
+  name: 'App',
+  components: { Loading },
+  computed: {
+    ...mapGetters([
+      'getStatus'
+    ])
+  }
 }
 </script>
 
