@@ -3,7 +3,7 @@ import mutations from './mutations.js';
 import getters from './getters.js';
 
 let state = {
-    loadingStatus: true
+    loadingStatus: false
 }
 
 export default {

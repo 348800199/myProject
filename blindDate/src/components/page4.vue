@@ -4,10 +4,10 @@
     <div class="header">
       <div class="home fs_28"
            @click="goHome">首页</div>
-      <div class="adressTest fs_34">{{content}}</div>
+      <div class="adressTest fs_34">{{title}}</div>
     </div>
     <div class="feedback content fs_28"
-         v-if="content==='意见反馈' || '举报投诉' ">
+         v-if="$route.query.content==='firstYuijianfankui'">
       <textarea name=""
                 v-model="submitContent"
                 id=""
@@ -20,25 +20,47 @@
            @click="submit">提交</div>
     </div>
     <div class="content fs_28"
+         v-html="content"
          v-else>
-      红娘小余为四川知名婚介平台，因业务扩展，走进广东！ 红娘小余，专注同城相亲，已有会员20000多人，牵手成功率80%以上！ 红娘小余走进广东，致力于为广东单身人群提供便捷的婚恋服务，不管您是温柔贤惠但交际圈窄的未婚女性，踏实能干却错失姻缘的未婚男性，还是受过伤依然勇敢追求幸福的离异人士，我们都将把属于您的幸福送到您的身边，让您拥有爱情与和谐美满的家庭。 正规工商注册，真实可靠
     </div>
 
   </div>
 </template>
 
 <script>
+import serviseCofig from '@/constants/serviseCofig'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Page4',
   data () {
     return {
-      submitContent: ''
+      content: '', //内容
+      title: '',
+      submitContent: '',
+      titleName: { 'firstAboutme': '关于我们', firstFuwuxieyi: '服务协议', 'firstBaohuxieyi': '个人信息保护政策', 'firstYuijianfankui': '意见反馈' }
     }
   },
   created () {
-    this.content = this.$route.params.content
+    this.title = this.titleName[this.$route.query.content]
+    this.$route.query.content !== 'firstYuijianfankui' && this.getInfo()
   },
   methods: {
+    ...mapActions(
+      { actionsStatus: 'setStatus' }
+    ),
+    getInfo () {
+
+      this.$http({
+        url: this.$http.adornUrl(serviseCofig[this.$route.query.content]),
+        method: 'get',
+      }).then(data => {
+        this.content = data.type.content
+        this.actionsStatus(false)
+
+      })
+
+
+    },
     goHome () {
       //router.push({ name: 'user', params: { userId: 123 }})
       this.$router.push({ name: 'Page1' })
@@ -48,10 +70,18 @@ export default {
         alert('反馈内容不能为空')
         return;
       }
-      let success = confirm('反馈成功,回到首页')
-      if (success) {
-        this.$router.push({ name: 'Page1' })
-      }
+      this.$http({
+        url: this.$http.adornUrl(serviseCofig[this.$route.query.content]),
+        method: 'get',
+        params: this.$http.adornParams({ text: this.submitContent })
+      }).then(data => {
+        this.actionsStatus(false)
+        let success = confirm('反馈成功,回到首页')
+        if (success) {
+          this.$router.push({ name: 'Page1' })
+        }
+      })
+
     }
   }
 }

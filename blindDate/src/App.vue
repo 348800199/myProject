@@ -1,8 +1,14 @@
 <template>
   <div id="app">
     <Loading v-if="getStatus" />
-
-    <router-view/>
+    <!-- <keep-alive>
+      <router-view />
+    </keep-alive> -->
+    <keep-alive>
+      <!--使用keep-alive会将页面缓存-->
+      <router-view v-if="keepAlive"></router-view>
+    </keep-alive>
+    <router-view v-if="!keepAlive"></router-view>
   </div>
 </template>
 
@@ -15,7 +21,10 @@ export default {
   computed: {
     ...mapGetters([
       'getStatus'
-    ])
+    ]),
+    keepAlive () {
+      return this.$route.meta.keepAlive
+    }
   }
 }
 </script>

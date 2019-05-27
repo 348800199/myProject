@@ -10,7 +10,7 @@
            @click="goJume(item)"
            v-for="item in adress"
            :key="item.id">
-        {{item.name}}
+        {{item.fenleiname}}
       </div>
     </div>
     <!-- 会员推荐 -->
@@ -38,25 +38,26 @@
     <!-- 底部 -->
     <div class="footer tc fs_24">
       <div class="word"
-           @click="goAblout('关于我们')">关于我们</div>丨
+           @click="goAblout('firstAboutme')">关于我们</div>丨
       <div class="word"
-           @click="goAblout('意见反馈')">意见反馈</div>丨
+           @click="goAblout('firstYuijianfankui')">意见反馈</div>丨
       <div class="word"
-           @click="goAblout('知姻网服务协议')">知姻网服务协议</div>丨
+           @click="goAblout('firstFuwuxieyi')">知姻网服务协议</div>丨
       <div class="word"
-           @click="goAblout('个人信息保护政策')">个人信息保护政策</div>
+           @click="goAblout('firstBaohuxieyi')">个人信息保护政策</div>
     </div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import example from '@/assets/js'
+import serviseCofig from '@/constants/serviseCofig'
 import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Page1',
   data () {
     return {
-      adress: [{ name: '成都', id: 1 }, { name: '绵阳', id: 2 }, { name: '德阳', id: 3 }, { name: '广元', id: 4 }, { name: '宜宾', id: 5 }, { name: '广安', id: 6 }, { name: '巴中', id: 7 }, { name: '南充', id: 8 }, { name: '遂宁', id: 9 }, { name: '乐山', id: 10 }, { name: '眉山', id: 11 }, { name: '达州', id: 12 }],
+      adress: [],
       member: [{ id: 1, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
       { id: 2, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
       { id: 3, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
@@ -71,28 +72,35 @@ export default {
 
   },
   created () {
-    this.getDate()
-
+    Promise.all([this.getAdress()]).then(_ => {
+      this.actionsStatus(false)
+    })
   },
   computed: {
   },
   watch: {
   },
   methods: {
+    //store的action 原名使用数组 方法
     ...mapMutations([
       'setStatus'
     ]),
+    //store的action 别名使用对象 方法
     ...mapActions(
       { actionsStatus: 'setStatus' }
     ),
-    getDate () {
-      this.$http({
-        url: this.$http.adornUrl('/index.php/api/first/index'),
-        method: 'get',
-      }).then(data => {
-        // this.setStatus(false)
-        this.actionsStatus(false)
+    // 获取地区
+    getAdress () {
+      return new Promise((resolve, reject) => {
+        this.$http({
+          url: this.$http.adornUrl(serviseCofig.firstIndex),
+          method: 'get',
+        }).then(data => {
+          this.adress = data.type
+          resolve()
+        })
       })
+
     },
     goJume (id) {
       //router.push({ name: 'user', params: { userId: 123 }})
@@ -102,7 +110,7 @@ export default {
       this.$router.push({ name: 'Page3', params: { detail } })
     },
     goAblout (content) {
-      this.$router.push({ name: 'Page4', params: { content } })
+      this.$router.push({ name: 'Page4', query: { content } })
     },
 
   },
