@@ -23,7 +23,7 @@
              @click="goDetail(item)"
              v-for="item in member"
              :key="item.id">
-          <img :src="item.img"
+          <img :src="item.firstimg"
                alt=""
                class="memberImg">
         </div>
@@ -58,21 +58,12 @@ export default {
   data () {
     return {
       adress: [],
-      member: [{ id: 1, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
-      { id: 2, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' },
-      { id: 3, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-        , { id: 4, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-        , { id: 5, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-        , { id: 6, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-        , { id: 7, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-        , { id: 8, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-        , { id: 9, img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1556541812&di=295a29bc3bef50a1add610ba3dcca552&imgtype=jpg&er=1&src=http%3A%2F%2Fimage2.cnpp.cn%2Fupload%2Fimages%2F20160919%2F14303287938_800x800.jpg' }
-      ]
+      member: []
     }
 
   },
   created () {
-    Promise.all([this.getAdress()]).then(_ => {
+    Promise.all([this.getAdress(), this.getRecommend()]).then(_ => {
       this.actionsStatus(false)
     })
   },
@@ -100,14 +91,24 @@ export default {
           resolve()
         })
       })
-
+    },
+    getRecommend () {
+      return new Promise((resolve, reject) => {
+        this.$http({
+          url: this.$http.adornUrl(serviseCofig.firstHuiyuantuijian),
+          method: 'get',
+        }).then(data => {
+          this.member = data.type
+          resolve()
+        })
+      })
     },
     goJume (id) {
       //router.push({ name: 'user', params: { userId: 123 }})
-      this.$router.push({ name: 'Page2', params: { id } })
+      this.$router.push({ name: 'Page2', query: { id } })
     },
     goDetail (detail) {
-      this.$router.push({ name: 'Page3', params: { detail } })
+      this.$router.push({ name: 'Page3', query: { id: detail.id } })
     },
     goAblout (content) {
       this.$router.push({ name: 'Page4', query: { content } })
