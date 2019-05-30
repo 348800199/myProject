@@ -113,6 +113,13 @@ export default {
     goAblout (content) {
       this.$router.push({ name: 'Page4', query: { content } })
     },
+    // clickParent () {
+    //   console.log(this.$parent)
+    //   this.$parent.fatherMethod() // 调用父组件方法
+    // },
+    // editUser () {
+    //   console.log('我被父组件点了') // 被父组件调用
+    // }
 
   },
   components: {

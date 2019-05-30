@@ -1,14 +1,19 @@
 <template>
   <div id="app">
     <Loading v-if="getStatus" />
-    <!-- <keep-alive>
-      <router-view />
-    </keep-alive> -->
     <keep-alive>
-      <!--使用keep-alive会将页面缓存-->
-      <router-view v-if="keepAlive"></router-view>
+      <router-view />
+    </keep-alive>
+    <keep-alive>
+
+      <!-- 使用keep-alive会将页面缓存-->
+      <router-view ref="edit"
+                   v-if="keepAlive"></router-view>
     </keep-alive>
     <router-view v-if="!keepAlive"></router-view>
+
+    <!-- <div @click="editUser(123)">调用子组件方法</div>
+    <router-view ref="edit"></router-view> -->
   </div>
 </template>
 
@@ -25,6 +30,15 @@ export default {
     keepAlive () {
       return this.$route.meta.keepAlive
     }
+  },
+  methods: {
+    // editUser (id) {
+    //   console.log(this.$refs)
+    //   this.$refs.edit.editUser(id);
+    // },
+    // fatherMethod () {
+    //   console.log('我被子组件点了')
+    // }
   }
 }
 </script>
