@@ -1,8 +1,8 @@
 <template>
-    <div class="container flex_cc">
-        <img src="@/assets/images/Loading.gif"
-             alt="Loading">
-    </div>
+  <div class="container flex_cc">
+    <img src="~%/images/Loading.gif"
+         alt="Loading">
+  </div>
 </template>
 
 

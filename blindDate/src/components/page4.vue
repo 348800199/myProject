@@ -7,7 +7,7 @@
       <div class="adressTest fs_34">{{title}}</div>
     </div>
     <div class="feedback content fs_28"
-         v-if="$route.query.content==='firstYuijianfankui'">
+         v-if="$route.query.content==='firstYuijianfankui' || $route.query.content=='complaint'">
       <textarea name=""
                 v-model="submitContent"
                 id=""
@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import serviseCofig from '@/constants/serviseCofig'
 import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Page4',
@@ -37,12 +36,16 @@ export default {
       content: '', //内容
       title: '',
       submitContent: '',
-      titleName: { 'firstAboutme': '关于我们', firstFuwuxieyi: '服务协议', 'firstBaohuxieyi': '个人信息保护政策', 'firstYuijianfankui': '意见反馈' }
+      titleName: { 'firstAboutme': '关于我们', complaint: '举报投诉', firstFuwuxieyi: '服务协议', 'firstBaohuxieyi': '个人信息保护政策', 'firstYuijianfankui': '意见反馈' }
     }
   },
   created () {
     this.title = this.titleName[this.$route.query.content]
-    this.$route.query.content !== 'firstYuijianfankui' && this.getInfo()
+    let content = this.$route.query.conten
+    if (content == 'firstAboutme' || content == 'firstFuwuxieyi' || content == 'firstBaohuxieyi') {
+      this.getInfo()
+    }
+
   },
   methods: {
     ...mapActions(
@@ -51,7 +54,7 @@ export default {
     getInfo () {
 
       this.$http({
-        url: this.$http.adornUrl(serviseCofig[this.$route.query.content]),
+        url: this.$http.adornUrl(this.$serviseCofig[this.$route.query.content]),
         method: 'get',
       }).then(data => {
         this.content = data.type.content
@@ -71,7 +74,7 @@ export default {
         return;
       }
       this.$http({
-        url: this.$http.adornUrl(serviseCofig[this.$route.query.content]),
+        url: this.$http.adornUrl(this.$serviseCofig[this.$route.query.content]),
         method: 'get',
         params: this.$http.adornParams({ text: this.submitContent })
       }).then(data => {

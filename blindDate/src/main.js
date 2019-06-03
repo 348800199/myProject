@@ -9,9 +9,12 @@ import 'swiper/dist/css/swiper.css';
 import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/axios
 import '@/components/componentRegister.js'
 import store from '@/store'
+import serviseCofig from '@/constants/serviseCofig'
+
 
 Vue.config.productionTip = false
 Vue.prototype.$http = httpRequest // ajax请求方法
+Vue.prototype.$serviseCofig = serviseCofig //接口库
 
 /* eslint-disable no-new */
 new Vue({

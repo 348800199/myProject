@@ -31,14 +31,13 @@
     </div>
     <!-- 投诉 -->
     <div class="complaint flex_cc fs_22"
-         @click="goAblout('举报投诉')">
+         @click="goAblout('complaint')">
       投诉
     </div>
   </div>
 </template>
 
 <script>
-import serviseCofig from '@/constants/serviseCofig'
 import Swiper from 'swiper';
 import { mapMutations, mapActions } from 'vuex'
 export default {
@@ -64,7 +63,7 @@ export default {
     ),
     getDetail () {
       this.$http({
-        url: this.$http.adornUrl(serviseCofig.firstHuiyuanxiangqing),
+        url: this.$http.adornUrl(this.$serviseCofig.firstHuiyuanxiangqing),
         method: 'get',
         params: this.$http.adornParams({ id: this.$route.query.id })
       }).then(data => {
@@ -73,7 +72,7 @@ export default {
       })
     },
     goAblout (content) {
-      this.$router.push({ name: 'Page4', params: { content } })
+      this.$router.push({ name: 'Page4', query: { content, id: this.$route.query.id } })
     },
   }
 }

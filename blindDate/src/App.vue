@@ -2,10 +2,6 @@
   <div id="app">
     <Loading v-if="getStatus" />
     <keep-alive>
-      <router-view />
-    </keep-alive>
-    <keep-alive>
-
       <!-- 使用keep-alive会将页面缓存-->
       <router-view ref="edit"
                    v-if="keepAlive"></router-view>

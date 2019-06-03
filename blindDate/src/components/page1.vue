@@ -51,7 +51,6 @@
 
 <script type="text/ecmascript-6">
 import example from '@/assets/js'
-import serviseCofig from '@/constants/serviseCofig'
 import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Page1',
@@ -84,7 +83,7 @@ export default {
     getAdress () {
       return new Promise((resolve, reject) => {
         this.$http({
-          url: this.$http.adornUrl(serviseCofig.firstIndex),
+          url: this.$http.adornUrl(this.$serviseCofig.firstIndex),
           method: 'get',
         }).then(data => {
           this.adress = data.type
@@ -95,7 +94,7 @@ export default {
     getRecommend () {
       return new Promise((resolve, reject) => {
         this.$http({
-          url: this.$http.adornUrl(serviseCofig.firstHuiyuantuijian),
+          url: this.$http.adornUrl(this.$serviseCofig.firstHuiyuantuijian),
           method: 'get',
         }).then(data => {
           this.member = data.type
@@ -103,9 +102,9 @@ export default {
         })
       })
     },
-    goJume (id) {
+    goJume (item) {
       //router.push({ name: 'user', params: { userId: 123 }})
-      this.$router.push({ name: 'Page2', query: { id } })
+      this.$router.push({ name: 'Page2', query: item })
     },
     goDetail (detail) {
       this.$router.push({ name: 'Page3', query: { id: detail.id } })
