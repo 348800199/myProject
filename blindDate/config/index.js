@@ -13,7 +13,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: devEnv.OPEN_PROXY === false ? {} : {
       '/proxyApi': {
-        target: 'http://120.79.170.160',  //正式
+        target: 'http://www.sczhiyin.cn', //正式
         changeOrigin: true,
         pathRewrite: {
           '^/proxyApi': '/'

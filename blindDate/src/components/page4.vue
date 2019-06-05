@@ -41,7 +41,7 @@ export default {
   },
   created () {
     this.title = this.titleName[this.$route.query.content]
-    let content = this.$route.query.conten
+    let content = this.$route.query.content
     if (content == 'firstAboutme' || content == 'firstFuwuxieyi' || content == 'firstBaohuxieyi') {
       this.getInfo()
     }
