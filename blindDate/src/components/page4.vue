@@ -36,7 +36,7 @@ export default {
       content: '', //内容
       title: '',
       submitContent: '',
-      titleName: { 'firstAboutme': '关于我们', complaint: '举报投诉', firstFuwuxieyi: '服务协议', 'firstBaohuxieyi': '个人信息保护政策', 'firstYuijianfankui': '意见反馈' }
+      titleName: { 'firstAboutme': '关于我们', firstTousu: '举报投诉', firstFuwuxieyi: '服务协议', 'firstBaohuxieyi': '个人信息保护政策', 'firstYuijianfankui': '意见反馈' }
     }
   },
   created () {

@@ -2,6 +2,8 @@
 <template>
   <div class="container">
     <div class="header">
+      <div class="home fs_28"
+           @click="$router.go(-1)">返回</div>
       <div class="adressTest fs_34">编号：{{detail.numbering}}</div>
     </div>
     <div class="swieep">
@@ -31,7 +33,7 @@
     </div>
     <!-- 投诉 -->
     <div class="complaint flex_cc fs_22"
-         @click="goAblout('complaint')">
+         @click="goAblout('firstTousu')">
       投诉
     </div>
   </div>
@@ -52,6 +54,9 @@ export default {
   },
   mounted () {
     new Swiper('.swiper-container', {
+      loop: true,
+      observer: true,
+      observeParents: true,
       pagination: {
         el: '.swiper-pagination',
       }
@@ -87,6 +92,14 @@ export default {
     position: relative;
     background: #fe0000;
     color: #fff;
+    .home {
+      border-radius: 0.12rem;
+      margin: 0.33rem 0.1rem 0;
+      background: #ebeced;
+      color: #777;
+      padding: 0.06rem 0.18rem;
+      display: inline-block;
+    }
     .adressTest {
       text-align: center;
       display: inline-block;

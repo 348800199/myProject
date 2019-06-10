@@ -10,6 +10,7 @@ import httpRequest from '@/utils/httpRequest' // api: https://github.com/axios/a
 import '@/components/componentRegister.js'
 import store from '@/store'
 import serviseCofig from '@/constants/serviseCofig'
+import 'swiper/dist/css/swiper.css'
 
 
 Vue.config.productionTip = false
