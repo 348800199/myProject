@@ -7,6 +7,7 @@
       <div class="adressTest fs_34"
            v-if="adressObj.fenleiname">{{adressObj.fenleiname}}</div>
     </div>
+
     <div class="screen fs_26">
       <div :class="[adressObj.sex==='1'?'un-member':'active-member','member']"
            style="margin-right:.2rem"
@@ -14,7 +15,8 @@
       <div :class="[adressObj.sex==='0'?'un-member':'active-member','member']"
            @click="changeStatus('1')">男会员</div>
     </div>
-    <div class="member fs_24">
+    <div class="member fs_24"
+         v-if="member.length">
       <div class="memberArr">
         <div class="memberItem"
              @click="goDetail(item.id)"
@@ -38,6 +40,11 @@
              @click="goPage(Math.ceil(adressObj.total/adressObj.pageSize))">尾页</div>
       </div>
     </div>
+    <div class="no-data"
+         v-else>
+      暂无数据
+    </div>
+
   </div>
 </template>
 
@@ -73,13 +80,13 @@ export default {
         method: 'get',
         params: this.$http.adornParams(this.adressObj)
       }).then(data => {
+        this.actionsStatus(false)
         if (data.type === 0) {
           this.member = []
           return
         }
         this.member = data.shuju
         this.adressObj.total = data.num
-        this.actionsStatus(false)
 
       })
     },
@@ -190,5 +197,11 @@ export default {
     border: 1px solid #eee;
     color: #fff;
   }
+}
+.no-data {
+  text-align: center;
+  font-size: 0.3rem;
+  margin: 40px auto 0;
+  color: #666;
 }
 </style>

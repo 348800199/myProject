@@ -36,7 +36,7 @@
            class="AdvertisingImg">
     </div>
     <!-- 底部 -->
-    <div class="footer tc fs_24">
+    <div class="footer tc fs_26">
       <div class="word"
            @click="goAblout('firstAboutme')">关于我们</div>丨
       <div class="word"
