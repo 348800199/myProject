@@ -7,7 +7,7 @@
       <div class="adressTest fs_34">{{title}}</div>
     </div>
     <div class="feedback content fs_28"
-         v-if="$route.query.content==='firstYuijianfankui' || $route.query.content=='complaint'">
+         v-if="$route.query.content==='firstYuijianfankui' || $route.query.content=='firstTousu'">
       <textarea name=""
                 v-model="submitContent"
                 id=""
@@ -70,7 +70,7 @@ export default {
     },
     submit () {
       if (!this.submitContent) {
-        alert('反馈内容不能为空')
+        alert('提交内容不能为空')
         return;
       }
       this.$http({
@@ -79,7 +79,7 @@ export default {
         params: this.$http.adornParams({ text: this.submitContent })
       }).then(data => {
         this.actionsStatus(false)
-        let success = confirm('反馈成功,回到首页')
+        let success = confirm('操作成功,回到首页')
         if (success) {
           this.$router.push({ name: 'Page1' })
         }
@@ -127,8 +127,8 @@ export default {
   width: 100%;
   left: 0;
   bottom: 0;
-  background: #4c8fe8;
-  border-color: #4c8fe8;
+  background: #f386ee;
+  border-color: #f386ee;
   color: #fff;
   height: 0.8rem;
   line-height: 0.8rem;

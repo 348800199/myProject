@@ -153,13 +153,13 @@ export default {
     border-radius: 0.2rem;
   }
   .active-member {
-    border: 1px solid #4c8fe8;
-    background-color: #4c8fe8;
+    border: 1px solid #f386ee;
+    background-color: #f386ee;
     color: #fff;
   }
   .un-member {
-    border: 1px solid #4c8fe8;
-    color: #4c8fe8;
+    border: 1px solid #f386ee;
+    color: #f386ee;
   }
 }
 .member {
@@ -189,7 +189,7 @@ export default {
   padding-bottom: 0.3rem;
   .page {
     display: inline-block;
-    background: #4c8fe8;
+    background: #f386ee;
     margin: 0 0 0 5px;
     width: 1.4rem;
     text-align: center;

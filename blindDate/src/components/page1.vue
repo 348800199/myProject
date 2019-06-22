@@ -1,9 +1,11 @@
 <template>
   <div class="container">
-    <div class="header fs_28 flex_cc">
-      <img src="~%/images/logo.jpg"
+    <div class="header fs_28">
+      <!-- <img src="~%/images/logo.jpg"
            class="logo"
-           alt="">
+           alt=""> -->
+      <div>知姻网</div>
+      <div>sczhiyin.cn</div>
     </div>
     <div class="adressArr fs_28 fc_fff">
       <div class="adressItem tc"
@@ -31,7 +33,7 @@
     </div>
     <!-- 广告宣传图 -->
     <div class="Advertising">
-      <img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b9999_10000&amp;sec=1555949284349&amp;di=d9f4825e4840badf7672fc439e778bd1&amp;imgtype=0&amp;src=http%3A%2F%2Fpic.qiantucdn.com%2F58pic%2F16%2F70%2F04%2F29658PICvqP_1024.jpg"
+      <img src="~%/images/ads.png"
            alt=""
            class="AdvertisingImg">
     </div>
@@ -134,6 +136,16 @@ export default {
   .header {
     width: 100%;
     border-bottom: 0.02rem solid #efefef;
+    background: #dd88d9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 0.3rem;
+    padding: 0.1rem 0.4rem;
+    letter-spacing: 0.01rem;
     .logo {
       width: 100%;
       height: 50px;
@@ -141,7 +153,7 @@ export default {
     }
   }
   .adressArr {
-    background: #fe0000;
+    background: #f386ee;
     display: flex;
     justify-content: space-between;
     align-items: center;

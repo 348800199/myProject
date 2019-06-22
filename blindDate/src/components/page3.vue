@@ -90,7 +90,7 @@ export default {
     height: 1.12rem;
     border-bottom: 0.02rem solid #eee;
     position: relative;
-    background: #fe0000;
+    background: #f386ee;
     color: #fff;
     .home {
       border-radius: 0.12rem;
@@ -107,6 +107,7 @@ export default {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
+      width: 4rem;
     }
   }
   .swieep {
@@ -134,7 +135,7 @@ export default {
       display: -webkit-box;
       -webkit-box-pack: center;
       -webkit-box-align: center;
-      background: rgba(239, 246, 255, 0.7);
+      background: rgba(218, 112, 213, 0.06);
       padding: 0.2rem;
       border-radius: 0.2rem;
     }
@@ -147,8 +148,8 @@ export default {
     height: 0.8rem;
     color: #fff;
     border-radius: 50%;
-    background: #4c8fe8;
-    box-shadow: 0 0.05rem 0.5rem rgba(0, 105, 255, 0.59);
+    background: #f386ee;
+    box-shadow: 0 0.05rem 0.5rem rgba(218, 112, 239, 1);
   }
 }
 </style>
