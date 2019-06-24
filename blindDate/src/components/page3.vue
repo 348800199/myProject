@@ -135,7 +135,7 @@ export default {
       display: -webkit-box;
       -webkit-box-pack: center;
       -webkit-box-align: center;
-      background: rgba(218, 112, 213, 0.06);
+      background: rgba(165, 205, 243, 0.06);
       padding: 0.2rem;
       border-radius: 0.2rem;
     }
@@ -148,8 +148,8 @@ export default {
     height: 0.8rem;
     color: #fff;
     border-radius: 50%;
-    background: #f386ee;
-    box-shadow: 0 0.05rem 0.5rem rgba(218, 112, 239, 1);
+    background: #097bfb;
+    box-shadow: 0 0.05rem 0.5rem rgba(165, 205, 243, 1);
   }
 }
 </style>

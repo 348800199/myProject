@@ -127,8 +127,8 @@ export default {
   width: 100%;
   left: 0;
   bottom: 0;
-  background: #f386ee;
-  border-color: #f386ee;
+  background: #097bfb;
+  border-color: #097bfb;
   color: #fff;
   height: 0.8rem;
   line-height: 0.8rem;

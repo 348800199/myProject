@@ -4,7 +4,7 @@
       <!-- <img src="~%/images/logo.jpg"
            class="logo"
            alt=""> -->
-      <div>知姻网</div>
+      <div class="head-titel">知姻网</div>
       <div>sczhiyin.cn</div>
     </div>
     <div class="adressArr fs_28 fc_fff">
@@ -136,7 +136,7 @@ export default {
   .header {
     width: 100%;
     border-bottom: 0.02rem solid #efefef;
-    background: #dd88d9;
+    background: #097bfb;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -146,6 +146,12 @@ export default {
     font-size: 0.3rem;
     padding: 0.1rem 0.4rem;
     letter-spacing: 0.01rem;
+    .head-titel {
+      width: 1.5rem; //必要宽度
+      display: inline-block;
+      text-align: justify;
+      text-align-last: justify;
+    }
     .logo {
       width: 100%;
       height: 50px;
@@ -153,12 +159,14 @@ export default {
     }
   }
   .adressArr {
-    background: #f386ee;
+    background: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-flow: wrap;
     padding: 0.1rem;
+    color: #000;
+    border-bottom: 0.02rem solid red;
     .adressItem {
       width: 16.6%;
       padding: 0.1rem 0;
@@ -167,7 +175,7 @@ export default {
   .member {
     .member-title {
       padding-top: 0.3rem;
-      padding-bottom: 0.2rem;
+      padding-bottom: 0.13rem;
     }
     .memberArr {
       margin-left: 0.2%;
